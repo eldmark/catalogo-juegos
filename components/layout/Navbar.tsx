@@ -7,55 +7,37 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-[#091829]">
+    <header className="sticky top-0 z-40 bg-[#FFF9F2] border-b text-[#1F2937]">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
-        <Link href="/" className="text-lg font-bold text-white">
-          Juegos de Mesa
+        <Link href="/" className="text-lg font-bold text-[#1F2937]">
+          Board Games
         </Link>
 
         <div className="hidden items-center gap-6 md:flex">
-          <Link href="/explore" className="text-white hover:text-[#005271]">
-            Explorar
+          <Link href="/explore" className="hover:text-[#3B82F6]">
+            Explore
           </Link>
-          <Link href="/catalog" className="text-white hover:text-[#005271]">
-            Catálogo
+          <Link href="/catalog" className="hover:text-[#3B82F6]">
+            Catalog
           </Link>
-          <input
-            type="text"
-            placeholder="Buscar juego..."
-            className="rounded-md px-3 py-1 text-sm text-[#091829]"
-          />
         </div>
 
         <button
-          className="text-white md:hidden"
-          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden text-xl"
+          onClick={() => setMenuOpen(!menuOpen)} 
         >
           ☰
         </button>
       </nav>
 
       {menuOpen && (
-        <div className="bg-[#091829] px-4 pb-4 md:hidden">
-          <Link
-            href="/explorar"
-            className="block py-2 text-white"
-            onClick={() => setMenuOpen(false)}
-          >
-            Explorar
+        <div className="px-4 pb-4 md:hidden">
+          <Link href="/explore" className="block py-2">
+            Explore
           </Link>
-          <Link
-            href="/catalogo"
-            className="block py-2 text-white"
-            onClick={() => setMenuOpen(false)}
-          >
-            Catálogo
+          <Link href="/catalog" className="block py-2">
+            Catalog
           </Link>
-          <input
-            type="text"
-            placeholder="Buscar juego..."
-            className="mt-2 w-full rounded-md px-3 py-2 text-sm"
-          />
         </div>
       )}
     </header>

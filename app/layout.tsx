@@ -10,7 +10,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className="bg-[#D8D9D4] text-[#091829]">
+      <body >
         <SponsorModal />
         <Navbar />
         <main className="min-h-screen">
