@@ -1,7 +1,8 @@
 import { getGames } from "@/lib/gamesService";
 import { filterGames } from "@/lib/helpers";
-import CatalogFilters  from "@/components/catalog/CatalogFilters";
+import CatalogFilters from "@/components/catalog/CatalogFilters";
 import Link from "next/link";
+import GameCard from "@/components/game/GameCard";
 
 export default async function CatalogPage({ searchParams }: any) {
   const games = await getGames();
@@ -25,20 +26,22 @@ export default async function CatalogPage({ searchParams }: any) {
       {filteredGames.length === 0 ? (
         <p>No games found.</p>
       ) : (
-        <ul className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          {filteredGames.map((game) => (
-            <li key={game.id} className="rounded-lg bg-white p-4 shadow">
-              <h2 className="font-semibold text-black">{game.name}</h2>
-              <p className="text-sm text-black">{game.category}</p>
-              <p className="text-sm text-black">{game.age}</p>
-              <Link
-                href={`/game/${game.id}`}
-                className="mt-2 inline-block text-sm text-[#005271]"
-              >
-                View details →
-              </Link>
-            </li>
-          ))}
+        <ul >
+          {
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {filteredGames.map((game) => (
+                <GameCard
+                  key={game.id}
+                  id={game.id}
+                  name={game.name}
+                  category={game.category}
+                  age={game.age}
+                  image={game.image}
+                  sponsored={game.sponsored}
+                />
+              ))}
+            </div>
+          }
         </ul>
       )}
     </div>

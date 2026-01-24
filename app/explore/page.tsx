@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getGames } from "@/lib/gamesService";
 import { filterSponsoredGames } from "@/lib/helpers";
+import GameCard from "@/components/game/GameCard";
 
 export default async function ExplorePage() {
   const games = await getGames();
@@ -20,21 +21,19 @@ export default async function ExplorePage() {
         </h2>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {orderedGames
-            .filter(g => g.sponsored)
-            .map(game => (
-              <div
+
+            .filter((g) => g.sponsored)
+            .map((game) => (
+              <GameCard
                 key={game.id}
-                className="rounded-lg text-black bg-white p-4 shadow"
-              >
-                <h3 className="font-semibold">{game.name}</h3>
-                <p className="text-sm">{game.category}</p>
-                <Link
-                  href="/catalog?sponsored=true"
-                  className="mt-2 inline-block text-sm text-[#005271]"
-                >
-                  Ver más →
-                </Link>
-              </div>
+                id={game.id}
+                name={game.name}
+                category={game.category}
+                age={game.age}
+                image={game.image}
+                sponsored
+                variant="compact"
+              />
             ))}
         </div>
       </section>

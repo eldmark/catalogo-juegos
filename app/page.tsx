@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getSponsoredGames } from "@/lib/getSponsoredGames";
+import GameCard from "@/components/game/GameCard";
 
 export default async function HomePage() {
   const sponsoredGames = await getSponsoredGames();
@@ -49,20 +50,19 @@ export default async function HomePage() {
         </h2>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+
           {sponsoredGames.map((game) => (
-            <div
+            <GameCard
               key={game.id}
-              className="rounded-lg text-black bg-white p-4 shadow"
-            >
-              <h3 className="mb-2 font-semibold">{game.name}</h3>
-              <p className="mb-4 text-sm">{game.description}</p>
-              <Link
-                href={`/game/${game.id}`}
-                className="text-sm text-[#005271]"
-              >
-                Learn more →
-              </Link>
-            </div>
+              id={game.id}
+              name={game.name}
+              category={game.category}
+              age={game.age}
+              image={game.image}
+              sponsored
+              variant="featured"
+            />
+
           ))}
         </div>
       </section>

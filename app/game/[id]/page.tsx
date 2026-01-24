@@ -62,14 +62,17 @@ export default async function GamePage({
       </div>
 
       {/* Rules */}
-      <section className="mt-12">
-        <h2 className="mb-4 text-2xl font-semibold">How to play</h2>
-        <ul className="list-disc space-y-2 pl-5">
-          {game.rules.map((rule, index) => (
-            <li key={index}>{rule}</li>
-          ))}
-        </ul>
+      <section className="mt-12 grid gap-4 sm:grid-cols-2">
+        {game.rules.map((rule, index) => (
+          <div
+            key={index}
+            className="rounded-xl bg-white p-4 shadow-sm"
+          >
+            {rule}
+          </div>
+        ))}
       </section>
+
     </div>
   );
 }
