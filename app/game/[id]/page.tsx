@@ -66,12 +66,12 @@ export default async function GamePage({
             </a>
 
             <ScrollToRulesButton />
-      <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <InfoCard label="Players" value={game.players} />
-        <InfoCard label="Play time" value={game.duration} />
-        <InfoCard label="Age" value={`${game.age}+`} />
-        <InfoCard label="Category" value={game.category} />
-      </section>
+            <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <InfoCard label="Players" value={game.players} />
+              <InfoCard label="Play time" value={game.duration} />
+              <InfoCard label="Age" value={`${game.age}+`} />
+              <InfoCard label="Category" value={game.category} />
+            </section>
           </div>
         </div>
       </section>
