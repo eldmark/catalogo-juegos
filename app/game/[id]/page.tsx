@@ -76,19 +76,15 @@ export default async function GamePage({
         </div>
       </section>
 
-      {/* ===================== */}
-      {/* QUICK INFO */}
-      {/* ===================== */}
-
 
       {/* ===================== */}
       {/* DESCRIPTION */}
       {/* ===================== */}
-      <section className="max-w-3xl">
-        <h2 className="mb-4 text-2xl font-bold ">
+      <section className="w-full" >
+        <h2 className="mb-4 text-2xl w-max font-bold ">
           Descripción del juego
         </h2>
-        <p className="text-lg leading-relaxed text-slate-700">
+        <p className="text-lg leading-relaxed text-slate-700 w">
           {game.description}
         </p>
       </section>
@@ -103,7 +99,7 @@ export default async function GamePage({
           {game.rules.map((rule: string, index: number) => (
             <div
               key={index}
-              className="rounded-2xl bg-white p-5 shadow-sm"
+              className="rounded-2xl bg-white p-5 shadow-sm hover:shadow-md transition"
             >
               <span className="mb-2 inline-block text-sm font-bold text-[#2563EB]">
                 Step {index + 1}
@@ -114,9 +110,6 @@ export default async function GamePage({
         </div>
       </section>
 
-      {/* ===================== */}
-      {/* RELATED GAMES */}
-      {/* ===================== */}
       {relatedGames.length > 0 && (
         <section>
           <h2 className="mb-6 text-2xl font-bold">
@@ -132,21 +125,20 @@ export default async function GamePage({
                 category={g.category}
                 age={g.age}
                 image={g.image}
+                sponsored={g.sponsored}
+                rating={g.rating}
               />
             ))}
           </div>
         </section>
       )}
 
-      {/* ===================== */}
-      {/* FINAL CTA */}
-      {/* ===================== */}
       <section className="rounded-3xl bg-[#2563EB] p-10 text-center text-white">
         <h2 className="text-3xl font-bold">
           Ready to play?
         </h2>
         <p className="mt-3">
-          Find this game and start playing today.
+          Encuentra este juego y empieza a jugar hoy.
         </p>
 
         <a
@@ -155,7 +147,7 @@ export default async function GamePage({
           rel="noopener noreferrer"
           className="mt-6 inline-block rounded-xl bg-white px-8 py-3 font-semibold text-[#2563EB]"
         >
-          Where to buy
+          Comprar
         </a>
       </section>
     </div>

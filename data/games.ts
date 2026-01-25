@@ -13,6 +13,7 @@ export type Game = {
     buyUrl: string;
     players: string;
     duration: string;
+    rating: number
 
 };
 
@@ -30,6 +31,7 @@ export const games: Game[] = [
         buyUrl: "https://www.amazon.com/Catan-Board-Game/dp/B07Q5JZJZJ",
         players: "5-6",
         duration: "45-60 minutos",
+        rating: 5
     },
     {
         id: "2",
@@ -42,7 +44,8 @@ export const games: Game[] = [
         price: 12.99,
         buyUrl: "www.google.com",
         players: "2-10",
-        duration: "15-30 minutos"
+        duration: "15-30 minutos",
+        rating: 4
     },
     {
         id: "3",
@@ -55,7 +58,8 @@ export const games: Game[] = [
         price: 29.99,
         buyUrl: "www.google.com",
         players: "2-8",
-        duration: "45-60 minutos"
+        duration: "45-60 minutos",
+        rating: 3
     },
     {
         id: "4",
@@ -69,7 +73,8 @@ export const games: Game[] = [
         price: 35.50,
         buyUrl: "www.google.com",
         players: "2-5",
-        duration: "30-45 minutos"
+        duration: "30-45 minutos",
+        rating: 3.5
     },
     {
         id: "5",
@@ -82,7 +87,8 @@ export const games: Game[] = [
         image: "https://image.api.playstation.com/vulcan/ap/rnd/202412/0511/cd4d2a576684b71a71182c18c6ca3e0813a63f0da5f53b87.jpg",
         buyUrl: "www.google.com",
         players: "2-5",
-        duration: "30-45 minutos"
+        duration: "30-45 minutos",
+        rating: 3
     },
     {
         id: "6",
@@ -96,7 +102,8 @@ export const games: Game[] = [
         price: 42.99,
         buyUrl: "www.google.com",
         players: "2-4",
-        duration: "30-45 minutos"
+        duration: "30-45 minutos",
+        rating: 4.5
     },
     {
         id: "7",
@@ -108,7 +115,8 @@ export const games: Game[] = [
         price: 19.99,
         buyUrl: "www.google.com",
         players: "2-10",
-        duration: "15-30 minutos"
+        duration: "15-30 minutos",
+        rating:     4
     },
     {
         id: "8",
@@ -120,7 +128,8 @@ export const games: Game[] = [
         price: 24.99,
         buyUrl: "www.google.com",
         players: "2-6",
-        duration: "30-45 minutos"
+        duration: "30-45 minutos",
+        rating: 2.5
     },
     {
         id: "9",
@@ -132,7 +141,8 @@ export const games: Game[] = [
         price: 14.99,
         buyUrl: "www.google.com",
         players: "2-8",
-        duration: "15-30 minutos"
+        duration: "15-30 minutos",
+        rating: 5
     },
     {
         id: "10",
@@ -144,7 +154,8 @@ export const games: Game[] = [
         price: 69.99,
         buyUrl: "www.google.com",
         players: "2-6",
-        duration: "45-60 minutos"
+        duration: "45-60 minutos",
+        rating: 2
     },
     {
         id: "11",
@@ -156,7 +167,8 @@ export const games: Game[] = [
         price: 79.99,
         buyUrl: "www.google.com",
         players: "2-5",
-        duration: "45-60 minutos"
+        duration: "45-60 minutos",
+        rating: 4
     },
     {
         id: "12",
@@ -168,6 +180,7 @@ export const games: Game[] = [
         price: 54.99,
         buyUrl: "www.google.com",
         players: "2-4",
-        duration: "30-45 minutos"
+        duration: "30-45 minutos",
+        rating: 3.5
     },
 ];

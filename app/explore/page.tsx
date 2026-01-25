@@ -2,10 +2,18 @@ import Link from "next/link";
 import { getGames } from "@/lib/gamesService";
 import { filterSponsoredGames } from "@/lib/helpers";
 import GameCard from "@/components/game/GameCard";
+import TopRatedSlider from "@/components/explore/TopRatedSlider";
 
 export default async function ExplorePage() {
   const games = await getGames();
   const orderedGames = filterSponsoredGames(games);
+  const topRatedGames = [...games]
+    .filter(g => g.rating >= 4.5)
+    .sort((a, b) => b.rating - a.rating)
+    .slice(0, 6);
+  const budgetGames = games
+    .filter(g => g.price <= 30)
+    .slice(0, 6);
 
   const categories = Array.from(new Set(games.map(g => g.category)));
   const ages = Array.from(new Set(games.map(g => g.age)));
@@ -33,6 +41,7 @@ export default async function ExplorePage() {
                 image={game.image}
                 sponsored
                 variant="compact"
+                rating={game.rating}
               />
             ))}
         </div>
@@ -69,6 +78,42 @@ export default async function ExplorePage() {
           ))}
         </div>
       </section>
+      <section className="mb-40 mt-12">
+        <h2 className="mb-4 text-xl font-bold">
+          ⭐ Mejor puntuados
+        </h2>
+        <TopRatedSlider games={topRatedGames} />
+      </section>
+      {/* Budget */}
+      <section className="mb-10 p-6 rounded-2xl bg-[#F8FAFC] p-6">
+        <div className="mb-6 flex items-center justify-between">
+          <h2 className="text-xl font-bold">
+             Juegos por menos de $30
+          </h2>
+          <Link
+            href="/catalog?maxPrice=30"
+            className="text-sm font-semibold text-[#2563EB]"
+          >
+            Ver todos →
+          </Link>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {budgetGames.map(game => (
+            <GameCard
+              key={game.id}
+              id={game.id}
+              name={game.name}
+              category={game.category}
+              age={game.age}
+              image={game.image}
+              rating={game.rating}
+              variant="compact"
+            />
+          ))}
+        </div>
+      </section>
+
     </div>
   );
 }

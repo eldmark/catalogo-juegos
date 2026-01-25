@@ -31,12 +31,7 @@ export default function Navbar() {
           >
             Catálogo
           </Link>
-          <Link
-            href="/catalog"
-            className="rounded-full bg-[#005271] px-6 py-2.5 text-white font-medium hover:bg-[#003d52] transition-all duration-200 shadow-lg hover:shadow-xl"
-          >
-            Ver todos
-          </Link>
+
         </div>
 
         {/* Mobile Menu Button */}
@@ -66,13 +61,6 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
             >
               Catálogo
-            </Link>
-            <Link
-              href="/catalog"
-              className="block text-center rounded-full bg-[#005271] px-6 py-3 text-white font-medium"
-              onClick={() => setMenuOpen(false)}
-            >
-              Ver todos
             </Link>
           </div>
         </div>

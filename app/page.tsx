@@ -73,6 +73,7 @@ export default async function HomePage() {
               image={game.image}
               sponsored
               variant="featured"
+              rating={game.rating}
             />
 
           ))}

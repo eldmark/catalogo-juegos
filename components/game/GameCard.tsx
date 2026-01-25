@@ -1,4 +1,6 @@
 import Link from "next/link";
+import RatingBadge from "./RatingBadge";
+import { games } from "@/data/games";
 
 type GameCardProps = {
   id: string;
@@ -8,6 +10,7 @@ type GameCardProps = {
   image?: string;
   sponsored?: boolean;
   variant?: "default" | "compact" | "featured";
+  rating?: number;
 };
 
 export default function GameCard({
@@ -18,6 +21,8 @@ export default function GameCard({
   image,
   sponsored,
   variant = "default",
+  rating,
+  
 }: GameCardProps) {
   return (
     <Link
@@ -71,6 +76,7 @@ export default function GameCard({
           →
         </span>
       </span>
+      <RatingBadge rating={rating} />
     </Link>
   );
 }
