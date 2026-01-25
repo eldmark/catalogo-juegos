@@ -1,14 +1,24 @@
 import Link from "next/link";
 import { getSponsoredGames } from "@/lib/getSponsoredGames";
 import GameCard from "@/components/game/GameCard";
-
+import HeroSlider from "@/components/home/HeroSlider";
+import Image from "next/image";
 export default async function HomePage() {
   const sponsoredGames = await getSponsoredGames();
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12">
+    <div className="mx-auto max-w-7xl px-4 py-12 space-y-16">
+      {/* Hero */}
+      <HeroSlider
+        slides={sponsoredGames.map((g) => ({
+          id: g.id,
+          name: g.name,
+          description: g.description,
+          image: g.image,
+        }))}
+      />
 
-      <section className="mb-16 grid gap-8 md:grid-cols-2">
+      <section className="mb-16 grid gap-8 md:grid-cols-2 p-8 rounded-xl bg-white border-2 border-[#907E34]" >
         <div>
           <h1 className="mb-6 text-4xl font-bold leading-tight">
             Descubre y explora juegos de mesa únicos
@@ -36,18 +46,20 @@ export default async function HomePage() {
         </div>
 
         {/* Hero visual */}
-        <div className="flex items-center justify-center rounded-xl bg-white p-8 shadow">
-          <span className="text-sm text-gray-500">
-            Hero image / illustration
-          </span>
+        <div className="flex items-center justify-center rounded-xl bg-white p-8 shadow relative h-64 md:h-auto">
+          <Image
+            src="/images/boardgame.jpg"
+            alt="Board games illustration"
+            layout="fill"
+          />
         </div>
       </section>
 
       {/* Sponsored */}
       <section>
-        <h2 className="mb-6 text-2xl font-semibold text-[#907E34]">
-          Sponsored games
-        </h2>
+        <h1 className="mb-10 text-4xl font-bold text-[#000000]">
+          Prueba nuestra lista seleccionada
+        </h1>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
 

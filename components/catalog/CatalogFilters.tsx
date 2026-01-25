@@ -1,18 +1,18 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 type Props = {
   categories: string[];
   ages: string[];
+  search: string;
+  setSearch: (value: string) => void;
 };
 
-export default function CatalogFilters({ categories, ages }: Props) {
+export default function CatalogFilters({ categories, ages, search, setSearch }: Props) {
   const router = useRouter();
   const searchParams = useSearchParams();
-
-  const [search, setSearch] = useState(searchParams.get("search") ?? "");
 
   function updateParam(key: string, value: string) {
     const params = new URLSearchParams(searchParams.toString());
@@ -39,7 +39,7 @@ export default function CatalogFilters({ categories, ages }: Props) {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Search game..."
-        className="w-full max-w-sm rounded-lg border px-4 py-2 focus:ring-2 focus:ring-[#3B82F6]"
+        className="w-full max-w-sm rounded-lg border px-4 py-2 focus:ring-2 focus:ring-[#2563EB] bg-white"
       />
 
       {/* Categories */}
@@ -48,10 +48,10 @@ export default function CatalogFilters({ categories, ages }: Props) {
           <button
             key={cat}
             onClick={() => updateParam("category", cat)}
-            className={`rounded-full px-4 py-1 text-sm transition-all duration-200 text-black ${
+            className={`rounded-full px-4 py-1 text-sm transition-all duration-200 text-[#0F172A] ${
               activeCategory === cat
-                ? "bg-[#A78BFA] text-white scale-105"
-                : "bg-[#E5E7EB] hover:bg-[#FACC15]"
+                ? "bg-[#2563EB] text-white scale-105"
+                : "bg-[#E0F2FE] hover:bg-[#1D4ED8] hover:text-white"
             }`}
           >
             {cat}
@@ -63,7 +63,7 @@ export default function CatalogFilters({ categories, ages }: Props) {
       <select
         value={searchParams.get("age") ?? ""}
         onChange={(e) => updateParam("age", e.target.value)}
-        className="rounded-lg border px-3 py-2 text-black bg-white focus:ring-2 focus:ring-[#3B82F6]"
+        className="rounded-lg border px-3 py-2 text-[#0F172A] bg-white focus:ring-2 focus:ring-[#2563EB]"
       >
         <option value="">All ages</option>
         {ages.map((age) => (
