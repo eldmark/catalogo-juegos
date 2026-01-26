@@ -10,6 +10,7 @@ import GameCard from "@/components/game/GameCard"
 import { sponsorBrands } from "@/data/sponsors"
 import { injectSponsors } from "@/components/algorithm/sponsorPlacement"
 import { SponsorBanner } from "@/components/SponsorBanner"
+import GameLink from "@/components/navigation/GameLink"
 
 export default function CatalogPage() {
   const [games, setGames] = useState<any[]>([])
@@ -72,8 +73,9 @@ const filteredGames = filterGames(games, {
             if (item.type === "game") {
               const game = item.data
               return (
+                <GameLink key={game.id} href={`/game/${game.id}`}>
+
                 <GameCard
-                  key={game.id}
                   id={game.id}
                   name={game.name}
                   category={game.category}
@@ -81,7 +83,8 @@ const filteredGames = filterGames(games, {
                   image={game.image}
                   sponsored={game.sponsored}
                   rating={game.rating}
-                />
+                  />
+                  </GameLink>
               )
             }
 

@@ -3,6 +3,7 @@ import { getGames } from "@/lib/gamesService";
 import { filterSponsoredGames } from "@/lib/helpers";
 import GameCard from "@/components/game/GameCard";
 import TopRatedSlider from "@/components/explore/TopRatedSlider";
+import GameLink from "@/components/navigation/GameLink";
 
 export default async function ExplorePage() {
   const games = await getGames();
@@ -43,24 +44,26 @@ export default async function ExplorePage() {
           Juegos patrocinados
         </h2>
         <div className="mb-2 mt-2  border-2 border-[#907E34] p-1 rounded-3xl bg-[#F8FAFC] hover:shadow-lg transition-shadow">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 bg-[#F8FAFC] p-6 rounded-3xl border-2 border-[#907E34] ">
-          {orderedGames
-
-            .filter((g) => g.sponsored)
-            .map((game) => (
-              <GameCard
-                key={game.id}
-                id={game.id}
-                name={game.name}
-                category={game.category}
-                age={game.age}
-                image={game.image}
-                sponsored
-                variant="compact"
-                rating={game.rating}
-              />
-            ))}
-        </div>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3 bg-[#F8FAFC] p-6 rounded-3xl border-2 border-[#907E34] ">
+            {orderedGames
+              .filter((g) => g.sponsored)
+              .map((game) => (
+                <GameLink href={`/game/${game.id}`}>
+                <GameCard
+                  key={game.id}
+                  id={game.id}
+                  name={game.name}
+                  category={game.category}
+                  age={game.age}
+                  image={game.image}
+                  sponsored
+                  variant="compact"
+                  rating={game.rating}
+                />
+                </GameLink>
+                
+              ))}
+          </div>
         </div>
       </section>
 
@@ -89,7 +92,7 @@ export default async function ExplorePage() {
       <section className="mb-10 p-6 rounded-2xl bg-[#F8FAFC] p-6">
         <div className="mb-6 flex items-center justify-between">
           <h2 className="text-xl font-bold">
-             Juegos por menos de $30
+            Juegos por menos de $30
           </h2>
           <Link
             href="/catalog?maxPrice=30"
@@ -101,6 +104,7 @@ export default async function ExplorePage() {
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {budgetGames.map(game => (
+            <GameLink href={`/game/${game.id}`}>
             <GameCard
               key={game.id}
               id={game.id}
@@ -111,6 +115,7 @@ export default async function ExplorePage() {
               rating={game.rating}
               variant="compact"
             />
+            </GameLink>
           ))}
         </div>
       </section>

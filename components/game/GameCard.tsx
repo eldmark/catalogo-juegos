@@ -35,7 +35,6 @@ export default function GameCard({
         shadow-sm 
         transition-colors
           ${variant === "featured" ? "p-6" : "p-4"}`}> 
-      {/* Image */}
       <div
         className={`
           relative mb-4 w-full overflow-hidden rounded-xl
@@ -62,7 +61,6 @@ export default function GameCard({
         )}
       </div>
 
-      {/* Content */}
       <h3 className="text-lg font-semibold transition-colors group-hover:text-[#2563EB]">
         {name}
       </h3>

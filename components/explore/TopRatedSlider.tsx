@@ -1,6 +1,7 @@
 
 import Link from "next/link";
 import GameCard from "@/components/game/GameCard";
+import GameLink from "../navigation/GameLink";
 
 export default function TopRatedSlider({ games }: { games: any[] }) {
   return (
@@ -11,7 +12,8 @@ export default function TopRatedSlider({ games }: { games: any[] }) {
             key={game.id}
             className="min-w-[260px] snap-start"
           >
-            <Link href={`/game/${game.id}`}>
+            <GameLink href={`/game/${game.id}`}>
+
               <GameCard
                 id={game.id}
                 name={game.name}
@@ -21,7 +23,8 @@ export default function TopRatedSlider({ games }: { games: any[] }) {
                 rating={game.rating}
                 variant="compact"
               />
-            </Link>
+
+            </GameLink>
           </div>
         ))}
       </div>
