@@ -134,4 +134,4 @@ Para reportar bugs o sugerencias, por favor abre un issue en el repositorio.
 
 ---
 
-Hecho con sangre,sudor,lágrimas y Next.js
+Hecho con sangre, sudor, lágrimas y Next.js
