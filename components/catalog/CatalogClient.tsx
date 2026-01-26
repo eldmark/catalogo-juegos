@@ -15,17 +15,12 @@ import { injectSponsors } from "@/components/algorithm/sponsorPlacement";
 import { SponsorBanner } from "@/components/SponsorBanner";
 import { Game } from "@/data/games";
 
-/* ---------------------------------- */
-/* Types */
-/* ---------------------------------- */
 
 type CatalogItem =
   | { type: "game"; data: Game }
   | { type: "sponsor"; data: any };
 
-/* ---------------------------------- */
-/* Component */
-/* ---------------------------------- */
+
 
 export default function CatalogClient() {
   const searchParams = useSearchParams();
