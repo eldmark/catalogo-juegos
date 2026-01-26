@@ -1,15 +1,23 @@
 "use client";
 
-import { Key, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+
 import SponsorModal from "@/components/layout/SponsorModal";
 import HeroSlider from "@/components/home/HeroSlider";
 import GameCard from "@/components/game/GameCard";
-import GameLink from "../navigation/GameLink";
+import GameLink from "@/components/navigation/GameLink";
 
+import { Game } from "@/data/games";
 
-export default function HomeClient({ sponsoredGames }) {
+type HomeClientProps = {
+  sponsoredGames: Game[];
+};
+
+export default function HomeClient({
+  sponsoredGames,
+}: HomeClientProps) {
   const [showSponsor, setShowSponsor] = useState(false);
 
   useEffect(() => {
@@ -23,6 +31,7 @@ export default function HomeClient({ sponsoredGames }) {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 space-y-16">
+      {/* Sponsor Modal */}
       <SponsorModal
         open={showSponsor}
         onClose={() => {
@@ -31,15 +40,17 @@ export default function HomeClient({ sponsoredGames }) {
         }}
       />
 
+      {/* Hero Slider */}
       <HeroSlider
-        slides={sponsoredGames.map((g: { id: any; name: any; description: any; image: any; }) => ({
+        slides={sponsoredGames.map((g) => ({
           id: g.id,
           name: g.name,
-          description: g.description,
+          description: g.description ?? "",
           image: g.image,
         }))}
       />
 
+      {/* Intro Section */}
       <section className="mb-16 grid gap-8 md:grid-cols-2 p-8 rounded-xl bg-white border-2 border-[#907E34]">
         <div>
           <h1 className="mb-6 text-4xl font-bold leading-tight">
@@ -78,25 +89,25 @@ export default function HomeClient({ sponsoredGames }) {
         </div>
       </section>
 
+      {/* Sponsored Games */}
       <section className="mb-16 bg-[#F8FAFC] p-8 rounded-2xl">
-        <h1 className="mb-10 text-4xl font-bold">
+        <h2 className="mb-10 text-4xl font-bold">
           Prueba nuestra lista seleccionada
-        </h1>
+        </h2>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {sponsoredGames.map((game: { id: Key | null | undefined; name: string; category: string; age: string; image: string | undefined; rating: number | undefined; }) => (
-                
-              <GameLink key={game.id} href={`/game/${game.id}`}>
-            <GameCard
-              id={game.id}
-              name={game.name}
-              category={game.category}
-              age={game.age}
-              image={game.image}
-              sponsored
-              variant="featured"
-              rating={game.rating}
-            />
+          {sponsoredGames.map((game) => (
+            <GameLink key={game.id} href={`/game/${game.id}`}>
+              <GameCard
+                id={game.id}
+                name={game.name}
+                category={game.category}
+                age={game.age}
+                image={game.image}
+                sponsored
+                variant="featured"
+                rating={game.rating}
+              />
             </GameLink>
           ))}
         </div>

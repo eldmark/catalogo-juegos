@@ -34,7 +34,7 @@ export default function GameCard({
         rounded-xl
         shadow-sm 
         transition-colors
-          ${variant === "featured" ? "p-6" : "p-4"}`}> 
+          ${variant === "featured" ? "p-6" : "p-4"}`}>
       <div
         className={`
           relative mb-4 w-full overflow-hidden rounded-xl
@@ -75,7 +75,9 @@ export default function GameCard({
           →
         </span>
       </span>
-      <RatingBadge rating={rating} />
-    </div>
+      {typeof rating === "number" && (
+        <RatingBadge rating={rating} />
+      )}    
+      </div>
   );
 }
