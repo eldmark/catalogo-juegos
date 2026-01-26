@@ -22,18 +22,19 @@ export default function GameCard({
   sponsored,
   variant = "default",
   rating,
-  
+
 }: GameCardProps) {
   return (
-    <Link
-      href={`/game/${id}`}
-      className={`
+    <div className={`relative
         group block rounded-2xl bg-white
         shadow-sm transition-all duration-200 ease-out
         hover:-translate-y-1 hover:shadow-lg
-        ${variant === "featured" ? "p-6" : "p-4"}
-      `}
-    >
+        
+    
+        rounded-xl
+        shadow-sm 
+        transition-colors
+          ${variant === "featured" ? "p-6" : "p-4"}`}> 
       {/* Image */}
       <div
         className={`
@@ -77,6 +78,6 @@ export default function GameCard({
         </span>
       </span>
       <RatingBadge rating={rating} />
-    </Link>
+    </div>
   );
 }

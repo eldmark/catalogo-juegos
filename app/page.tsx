@@ -32,13 +32,13 @@ export default async function HomePage() {
           <div className="flex gap-4">
             <Link
               href="/explore"
-              className="rounded-lg bg-[#005271] px-6 py-3 text-white"
+              className="rounded-lg bg-[#005271] px-6 py-3 text-white hover:-translate-y-1 hover:shadow-lg "
             >
               Explorar juegos
             </Link>
             <Link
               href="/catalog"
-              className="rounded-lg bg-[#091829] px-6 py-3 text-white"
+              className="rounded-lg bg-[#091829] px-6 py-3 text-white hover:-translate-y-1 hover:shadow-lg "
             >
               Ver el catálogo
             </Link>
@@ -56,7 +56,7 @@ export default async function HomePage() {
       </section>
 
       {/* Sponsored */}
-      <section>
+      <section className="mb-16 bg-[#F8FAFC] p-8 rounded-2xl">
         <h1 className="mb-10 text-4xl font-bold text-[#000000]">
           Prueba nuestra lista seleccionada
         </h1>

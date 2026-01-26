@@ -22,12 +22,28 @@ export default async function ExplorePage() {
     <div className="mx-auto max-w-7xl px-4 py-8">
       <h1 className="mb-8 text-2xl font-bold">Explorar juegos</h1>
 
-      {/* Sponsored */}
+
       <section className="mb-12">
-        <h2 className="mb-4 text-xl font-semibold text-[#907E34]">
+        <h2 className="mb-4 text-xl font-semibold">Categorías</h2>
+        <div className="flex flex-wrap gap-3 ">
+          {categories.map(category => (
+            <Link
+              key={category}
+              href={`/catalog?category=${encodeURIComponent(category)}`}
+              className="rounded-full bg-[#005271] px-4 py-1 text-sm text-white  hover:-translate-y-1 hover:shadow-lg hover:bg-[#091829]"
+            >
+              {category}
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="mb-6 text-xl font-bold text-[#907E34]">
           Juegos patrocinados
         </h2>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <div className="mb-2 mt-2  border-2 border-[#907E34] p-1 rounded-3xl bg-[#F8FAFC] hover:shadow-lg transition-shadow">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 bg-[#F8FAFC] p-6 rounded-3xl border-2 border-[#907E34] ">
           {orderedGames
 
             .filter((g) => g.sponsored)
@@ -45,21 +61,6 @@ export default async function ExplorePage() {
               />
             ))}
         </div>
-      </section>
-
-      {/* Categories */}
-      <section className="mb-12">
-        <h2 className="mb-4 text-xl font-semibold">Categorías</h2>
-        <div className="flex flex-wrap gap-3">
-          {categories.map(category => (
-            <Link
-              key={category}
-              href={`/catalog?category=${encodeURIComponent(category)}`}
-              className="rounded-full bg-[#005271] px-4 py-1 text-sm text-white"
-            >
-              {category}
-            </Link>
-          ))}
         </div>
       </section>
 
@@ -71,20 +72,20 @@ export default async function ExplorePage() {
             <Link
               key={age}
               href={`/catalog?age=${encodeURIComponent(age)}`}
-              className="rounded-full bg-[#091829] px-4 py-1 text-sm text-white"
+              className="rounded-full bg-[#091829] px-4 py-1 text-sm text-white hover:-translate-y-1 hover:shadow-lg hover:bg-[#005271]"
             >
               {age}
             </Link>
           ))}
         </div>
       </section>
-      <section className="mb-40 mt-12">
+      <section className="mb-10 mt-12 bg-[#F8FAFC] p-6 rounded-2xl">
         <h2 className="mb-4 text-xl font-bold">
           ⭐ Mejor puntuados
         </h2>
         <TopRatedSlider games={topRatedGames} />
       </section>
-      {/* Budget */}
+
       <section className="mb-10 p-6 rounded-2xl bg-[#F8FAFC] p-6">
         <div className="mb-6 flex items-center justify-between">
           <h2 className="text-xl font-bold">
