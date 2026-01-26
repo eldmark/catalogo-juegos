@@ -1,8 +1,8 @@
-# 🎲 Board Game Catalog
+#  Board Game Catalog
 
 Un catálogo interactivo de juegos de mesa desarrollado con Next.js 16, que permite a los usuarios explorar, filtrar y descubrir juegos de mesa únicos de desarrolladores independientes.
 
-## ✨ Características
+##  Características
 
 - **Catálogo completo** con sistema de filtros avanzados (categoría, edad, precio, rating)
 - **Sistema de patrocinio** con juegos destacados y banners publicitarios
@@ -16,7 +16,7 @@ Un catálogo interactivo de juegos de mesa desarrollado con Next.js 16, que perm
 - **Simulación de carga** para simular llamadas API reales
 - **Navegación fluida** con estados de carga personalizados
 
-## 🛠️ Tecnologías
+##  Tecnologías
 
 - **Framework:** Next.js 16.1.4 (App Router)
 - **UI:** React 19.2.3
@@ -26,43 +26,9 @@ Un catálogo interactivo de juegos de mesa desarrollado con Next.js 16, que perm
 - **Navegación:** Next.js Navigation (useRouter, useSearchParams)
 - **Imágenes:** Next.js Image Optimization
 
-## 📦 Instalación
-```bash
-# Clonar el repositorio
-git clone <tu-repositorio>
-
-# Instalar dependencias
-npm install
-# o
-yarn install
-# o
-pnpm install
-```
-
-## 🚀 Uso
-
-### Desarrollo
-```bash
-npm run dev
-```
-
-Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
-
-### Producción
-```bash
-# Construir para producción
-npm run build
-
-# Iniciar servidor de producción
-npm start
-```
-
-### Linting
-```bash
-npm run lint
-```
 
 ## 📁 Estructura del Proyecto
+
 ```
 ├── app/                      # App Router de Next.js
 │   ├── catalog/             # Página del catálogo
@@ -93,7 +59,7 @@ npm run lint
     └── images/              # Imágenes del proyecto
 ```
 
-## 🎮 Funcionalidades Principales
+##  Funcionalidades Principales
 
 ### Sistema de Filtros
 El catálogo incluye múltiples filtros que se pueden combinar:
@@ -117,7 +83,7 @@ El catálogo incluye múltiples filtros que se pueden combinar:
 - Sistema de navegación sticky
 - Scroll suave a secciones específicas
 
-## Paleta de Colores
+##  Paleta de Colores
 
 - **Primario:** `#2563EB` (Azul)
 - **Secundario:** `#005271` (Azul oscuro)
@@ -134,7 +100,7 @@ Los juegos incluyen:
 - Información detallada: precio, jugadores, duración, rating, reglas
 - 3 marcas patrocinadoras (Asmodee, Ravensburger, Hasbro)
 
-## 🔧 Configuración
+##  Configuración
 
 ### Tailwind CSS
 Configurado con la versión 4, usando PostCSS. Los estilos se importan desde `app/globals.css`.
@@ -145,7 +111,7 @@ Configuración estricta habilitada para mayor seguridad de tipos.
 ### ESLint
 Configurado con las reglas recomendadas de Next.js y TypeScript.
 
-## Deployment
+##  Deployment
 
 Este proyecto está optimizado para ser desplegado en **Vercel**:
 
@@ -153,13 +119,19 @@ Este proyecto está optimizado para ser desplegado en **Vercel**:
 2. Vercel detectará automáticamente Next.js
 3. El proyecto se construirá y desplegará automáticamente
 
-## Autor
+##  Autor
 
 **Marco Díaz** - Desarrollador y Diseñador
 
-## Licencia
+##  Licencia
 
 © 2025 Catálogo de Juegos de Mesa - Todos los derechos reservados.
 
 
-Hecho con amor,dolor,lágr y Next.js
+##  Soporte
+
+Para reportar bugs o sugerencias, por favor abre un issue en el repositorio.
+
+---
+
+Hecho con sangre,sudor,lágrimas y Next.js
